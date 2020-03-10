@@ -89,8 +89,23 @@ module.exports = {
     chainWebpack: config => {
         config
             .entry('app')
-                .clear()
-                .add(`./src/views/${FILE_NAME}/main.js`)
-                .end()
+            .clear()
+            .add(`./src/views/${FILE_NAME}/main.js`)
+        // .end()
+        // 移除 prefetch 插件
+        config.plugins.delete('prefetch')
+        config.plugins.delete('preload')
+        config.module
+            .rule("images")
+            .test(/\.(jpg|png|gif)$/)
+            .use("url-loader")
+            .loader("url-loader")
+            .options({
+                limit:200000,
+                // publicPath: 'https://oss.xx.com/img',
+                outputPath: 'assets/img',
+                name: '[name].[hash:7].[ext]',
+            })
+            .end();
     }
 }

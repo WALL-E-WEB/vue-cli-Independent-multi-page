@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "cross-env FILE_NAME=files vue-cli-service serve",
-    "serve:dev": "cross-env FILE_NAME=files vue-cli-service serve --mode development",
-    "build": "cross-env FILE_NAME=ui vue-cli-service build",
-    "build2": "cross-env FILE_NAME=index vue-cli-service build --no-clean",
+    "serve": "cross-env FILE_NAME=index vue-cli-service serve",
+    "serve:dev": "cross-env FILE_NAME=index vue-cli-service serve --mode development",
+    "build": "cross-env FILE_NAME=ui vue-cli-service build --report",
+    "build2": "cross-env FILE_NAME=index vue-cli-service build  --report",
     "build:pro": "cross-env FILE_NAME=files vue-cli-service build --mode production"
   },
   "dependencies": {
@@ -24,9 +24,11 @@
     "@vue/cli-service": "^4.2.0",
     "compression-webpack-plugin": "^3.1.0",
     "cross-env": "^7.0.2",
+    "image-webpack-loader": "^6.0.0",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "vue-template-compiler": "^2.6.11",
+    "webpack-bundle-analyzer": "^3.6.0",
     "webpack-dev-server": "^3.10.3"
   }
 }
